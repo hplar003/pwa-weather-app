@@ -16,13 +16,18 @@
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
-  <!-- <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./service-worker').then((reg) => console.log('success', reg.scope)).catch((err) => console.log('Error:', err))
-      })
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker
+        .register("/custom-service-worker.js") // Adjust the path as needed
+        .then((registration) => {
+          console.log("Service Worker registered with scope:", registration.scope);
+        })
+        .catch((error) => {
+          console.error("Service Worker registration failed:", error);
+        });
     }
-  </script> -->
+  </script>
 </body>
 
 </html>
